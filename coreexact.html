@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arboricity-Based CLIQUE Algorithm</title>
+    <title>Core Exact Algorithm</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -47,18 +47,20 @@
     <div class="content">
       <h1>Core Exact Algorithm</h1>
       
-      <p>Core Exact Algorithm is an efficient method for listing all maximal cliques in a graph, leveraging <strong>arboricity</strong> to optimize the search.</p>
+      <p>Algorithm-4, referred to as the CORE-EXACT method, is an optimized version of the exact densest subgraph discovery approach.
+It builds upon Algorithm-1 (EXACT) by integrating k-core decomposition to pre-process the graph, thereby reducing its size and complexity before applying the binary search and max-flow based method.
+ Key features are:</p>
 
 <ul>
-  <li>Operates by decomposing the graph into low-degree subgraphs for efficient clique enumeration.</li>
-  <li>Utilizes the concept of <strong>k-core decomposition</strong> to reduce redundant computations.</li>
-  <li>Processes edges in a structured manner:</li>
-  <ul>
-    <li><strong>High-degree vertices are processed first,</strong> reducing the number of edges explored per vertex.</li>
-    <li><strong>Each edge is considered only once,</strong> improving efficiency.</li>
-  </ul>
-  <li>Runs in <strong>O(a(G) * m)</strong> time, where <strong>a(G)</strong> is the arboricity of the graph and <strong>m</strong> is the number of edges.</li>
-  <li>Works best for <strong>sparse graphs</strong> with low arboricity, making it highly efficient for large-scale networks.</li>
+  <li>K-core Pruning: Before performing binary search, a k-core decomposition is computed. Vertices with low degree are pruned early, significantly reducing the graph size and the number of flow computations.
+</li>
+  <li>Accelerated Binary Search: After pruning, the densest subgraph is found by performing binary search over candidate densities on the reduced graph.
+</li>
+  <li>Flow Network Construction: Similar to Algorithm-1, flow networks are constructed for each density guess, and maximum flow is used to validate the existence of subgraphs exceeding the guessed density.
+</li>
+  <li>Efficiency Boost: By working on a smaller graph, CORE-EXACT achieves faster running times while still guaranteeing exact correctness.
+</li>
+  
 </ul>
 
     
