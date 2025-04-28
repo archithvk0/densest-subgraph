@@ -47,18 +47,15 @@
     <div class="content">
       <h1>Exact Algorithm</h1>
       
-      <p>Chiba's Algorithm is an efficient method for listing all maximal cliques in a graph, leveraging <strong>arboricity</strong> to optimize the search.</p>
+      <p>Algorithm-1 (referred to as the EXACT method) computes the densest subgraph of an undirected graph by leveraging maximum flow techniques.
+The algorithm models the densest subgraph problem as a series of flow network problems and uses a binary search over density thresholds to find the maximum possible average degree among all subgraphs.
+ Key features are:</p>
 
 <ul>
-  <li>Operates by decomposing the graph into low-degree subgraphs for efficient clique enumeration.</li>
-  <li>Utilizes the concept of <strong>k-core decomposition</strong> to reduce redundant computations.</li>
-  <li>Processes edges in a structured manner:</li>
-  <ul>
-    <li><strong>High-degree vertices are processed first,</strong> reducing the number of edges explored per vertex.</li>
-    <li><strong>Each edge is considered only once,</strong> improving efficiency.</li>
-  </ul>
-  <li>Runs in <strong>O(a(G) * m)</strong> time, where <strong>a(G)</strong> is the arboricity of the graph and <strong>m</strong> is the number of edges.</li>
-  <li>Works best for <strong>sparse graphs</strong> with low arboricity, making it highly efficient for large-scale networks.</li>
+  <li>Binary Search Framework: The algorithm performs a binary search over possible density values (average degree thresholds), solving a maximum flow problem at each step to check if a subgraph exists above the threshold.</li>
+  <li>Flow Network Construction: For each candidate density, a flow network is constructed where nodes are connected to a source and sink with capacities based on degree constraints.</li>
+  <li>Subgraph Extraction: If a feasible subgraph exists at the current threshold (identified by analyzing the residual graph after flow computation), the threshold is increased; otherwise, it is decreased.</li>
+  <li>Precision Control: The binary search terminates when the gap between the upper and lower density bounds falls below a small ε (precision parameter).</li>
 </ul>
 
     
