@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>as-skitter Dataset</title>
+    <title>as-caida Dataset</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -38,18 +38,29 @@
   </head>
   <body>
     <div class="content">
-      <h1>As-skitter Dataset</h1>
-        <h2>Number of Nodes and Edges</h2>
+      <h1>Center for Applied Internet Data Analysis Dataset</h1>
+        <h2>The 1as_caida_processed dataset represents the network of Autonomous Systems 
+(AS) on the Internet, derived from CAIDA's (Center for Applied Internet Data 
+Analysis) measurements. 
+An Autonomous System is a collection of IP routing prefixes under the control of a 
+single entity that presents a common routing policy to the internet. 
+The dataset captures the connectivity between AS nodes as observed through BGP 
+(Border Gateway Protocol) routing tables. 
+The network includes: </h2>
       <ul>
-        <li>Nodes:  1,696,415</li>
-        <li>Edges:  11,095,298</li>
+        <li>26475 Autonomous Systems (nodes), each corresponding to an independent 
+network (e.g., ISPs, universities, large organizations).</li>
+        <li>106,762 links (edges) representing peer-to-peer relationships or 
+customer-provider relationships between two ASes. </li>
+        <li>The network is undirected after preprocessing: an AS connection is treated 
+symmetrically, regardless of its original directionality in BGP paths. </li>
       </ul>
       
 
       <h2>Link</h2>
       <p>
-        <a href="https://snap.stanford.edu/data/as-Skitter.html" target="_blank"
-          >Download As-skitter Dataset</a
+        <a href="https://drive.google.com/drive/folders/1BlfTf-7yzxMayQbwKrXdJs9uTCDbqycJ" target="_blank"
+          >Download As-caida Dataset</a
         >
       </p>
 
